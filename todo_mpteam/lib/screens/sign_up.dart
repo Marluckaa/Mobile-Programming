@@ -30,6 +30,16 @@ class signUpScreen extends StatelessWidget {
                 fontSize: 18,
               ),
             ),
+            const Text(
+              "Anu neg yum nemeed push hii gsn ",
+              style: TextStyle(
+                backgroundColor: Color.fromARGB(255, 131, 177, 255),
+                fontFamily: "Lato",
+                fontWeight: FontWeight.bold,
+                letterSpacing: 0.2,
+                fontSize: 18,
+              ),
+            ),
             Image.network(
               "https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/Studio_Ghibli_logo.svg/1200px-Studio_Ghibli_logo.svg.png",
               height: 200,
