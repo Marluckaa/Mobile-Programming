@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:todo_mpteam/common/color_extension.dart';
 import 'package:todo_mpteam/screens/login/startup_screen.dart';
 
+void main(){
+  runApp(MyApp());
+}
 class MyApp extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,6 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: TColor.primary),
         useMaterial3: false,
       ),
+      
       home: const StartUpScreen(),
     );
   }

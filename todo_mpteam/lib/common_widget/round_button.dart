@@ -25,6 +25,7 @@ class RoundButton extends StatelessWidget {
         color: type == RoundButtonType.primary ? TColor.primary : TColor.secondary,
         height: 60,
         shape: RoundedRectangleBorder(
+          side: BorderSide.none,
           borderRadius: BorderRadius.circular(30)          
         ),
         child: Text(
