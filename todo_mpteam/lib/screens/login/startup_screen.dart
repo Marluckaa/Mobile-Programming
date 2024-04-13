@@ -24,64 +24,81 @@ class _StartUpScreenState extends State<StartUpScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "img/startup_top.png",
-                  width: double.maxFinite,
-                  fit: BoxFit.fitHeight,
-                ),
-                const SizedBox(height:15),
-                Text(
-                  "We are what we do",
-                  style: TextStyle(
-                    color: TColor.primaryText,
-                    fontSize: 30,
-                    fontWeight: FontWeight.w700,
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 20.0), 
+            child: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "img/startup_top.png",
+                    width: double.maxFinite,
+                    fit: BoxFit.fitHeight,
                   ),
-                ),
-                   Text(
-                      "Маш олон хэрэглэгчид нэгэн зэрэг\nбясалгал хийх газар",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
+                  Text(
+                    "We are what we do",
+                    style: TextStyle(
+                      color: TColor.primaryText,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    "Маш олон хэрэглэгчид нэгэн зэрэг\nбясалгал хийх газар",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
                       color: TColor.secondaryText,
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
-                      ),
                     ),
-                const SizedBox(height: 15),
-                RoundButton(title: "SIGN UP", onPressed: () {
-                  context.push(const SignUpScreen());
-                }),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "ALREADY HAVE AN ACCOUNT?",
-                      style: TextStyle(
-                        color: TColor.secondaryText,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        context.push(const LoginScreen());
-                      },
-                      child: Text(
-                        "LOGIN",
+                  ),
+                  const SizedBox(height: 15),
+                  RoundButton(
+                    title: "SIGN UP",
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SignUpScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "ALREADY HAVE AN ACCOUNT?",
                         style: TextStyle(
-                          color: TColor.primary,
+                          color: TColor.secondaryText,
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginScreen(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          "LOG IN",
+                          style: TextStyle(
+                            color: TColor.primary,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

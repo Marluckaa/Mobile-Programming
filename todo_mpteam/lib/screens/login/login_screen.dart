@@ -3,20 +3,17 @@ import 'package:flutter/services.dart';
 import 'package:todo_mpteam/common/color_extension.dart';
 import 'package:todo_mpteam/common_widget/round_button.dart';
 import 'package:todo_mpteam/common_widget/roundtext_field.dart';
+import 'package:todo_mpteam/screens/home/topic_screen.dart';
 import 'package:todo_mpteam/screens/login/signup_screen.dart';
 
-
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,127 +31,129 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: double.maxFinite,
                       fit: BoxFit.fitHeight,
                     ),
-                    Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Row(
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Image.asset(
-                                  "assets/img/back.png",
-                                  width: 55,
-                                  height: 55,
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Row(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Image.asset(
+                                    "assets/img/back.png",
+                                    width: 55,
+                                    height: 55,
+                                  ),
                                 ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          Text(
+                            "Welcome Back!",
+                            style: TextStyle(
+                              color: TColor.primaryText,
+                              fontSize: 28,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: MaterialButton(
+                              onPressed: () {},
+                              minWidth: double.maxFinite,
+                              elevation: 0,
+                              color: const Color(0xff8E97FD),
+                              height: 60,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
                               ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 25,
-                        ),
-                        Text(
-                          "Welcome Back!",
-                          style: TextStyle(
-                            color: TColor.primaryText,
-                            fontSize: 28,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 25,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: MaterialButton(
-                            onPressed: () {},
-                            minWidth: double.maxFinite,
-                            elevation: 0,
-                            color: const Color(0xff8E97FD),
-                            height: 60,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: Row(
-                              children: [
-                                const SizedBox(
-                                  width: 15,
-                                ),
-                                Image.asset(
-                                  'assets/img/fb.png',
-                                  width: 25,
-                                  height: 25,
-                                ),
-                                const Expanded(
-                                  child: Text(
-                                    "CONTINUE WITH FACEBOOK",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w600,
+                              child: Row(
+                                children: [
+                                  const SizedBox(
+                                    width: 15,
+                                  ),
+                                  Image.asset(
+                                    'assets/img/fb.png',
+                                    width: 25,
+                                    height: 25,
+                                  ),
+                                  const Expanded(
+                                    child: Text(
+                                      "CONTINUE WITH FACEBOOK",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                const SizedBox(
-                                  width: 40,
-                                ),
-                              ],
+                                  const SizedBox(
+                                    width: 40,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 25,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: MaterialButton(
-                            onPressed: () {},
-                            minWidth: double.maxFinite,
-                            elevation: 0,
-                            color: Colors.white,
-                            height: 60,
-                            shape: RoundedRectangleBorder(
-                              side: BorderSide(
-                                  color: TColor.tertiary, width: 1),
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: Row(
-                              children: [
-                                const SizedBox(
-                                  width: 15,
-                                ),
-                                Image.asset(
-                                  'assets/img/google.png',
-                                  width: 25,
-                                  height: 25,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    "CONTINUE WITH GOOGLE",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: TColor.primaryText,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w600,
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: MaterialButton(
+                              onPressed: () {},
+                              minWidth: double.maxFinite,
+                              elevation: 0,
+                              color: Colors.white,
+                              height: 60,
+                              shape: RoundedRectangleBorder(
+                                side: BorderSide(
+                                    color: TColor.tertiary, width: 1),
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: Row(
+                                children: [
+                                  const SizedBox(
+                                    width: 15,
+                                  ),
+                                  Image.asset(
+                                    'assets/img/google.png',
+                                    width: 25,
+                                    height: 25,
+                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      "CONTINUE WITH GOOGLE",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: TColor.primaryText,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                const SizedBox(
-                                  width: 40,
-                                ),
-                              ],
+                                  const SizedBox(
+                                    width: 40,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 35,
                 ),
                 Text(
@@ -166,26 +165,25 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 35,
                 ),
                 RoundTextField(hintText: "Email address"),
-                const SizedBox(
+                SizedBox(
                   height: 20,
                 ),
-
                 RoundTextField(hintText: "Password", obscureText: true),
-                const SizedBox(
+                SizedBox(
                   height: 20,
                 ),
-
-                RoundButton(title: "LOG IN", onPressed: () {
-                  
-                }),
+                RoundButton(
+                    title: "LOG IN",
+                    onPressed: () {
+                      context.push(const ChooseTopicScreen());
+                      //welcome get started luu ochih
+                    }),
                 TextButton(
-                  onPressed: () {
-                   
-                  },
+                  onPressed: () {},
                   child: Text(
                     "Forgot Password?",
                     style: TextStyle(
@@ -195,7 +193,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                const Spacer(),
+                  SizedBox(
+                  height: 10,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -207,11 +207,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-
                     TextButton(
                       onPressed: () {
                         context.push(const SignUpScreen());
-            
                       },
                       child: Text(
                         "SIGN UP",
@@ -224,7 +222,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ],
                 ),
-                const Spacer(),
+                  SizedBox(
+                  height: 20,
+                ),
               ],
             ),
           ),
