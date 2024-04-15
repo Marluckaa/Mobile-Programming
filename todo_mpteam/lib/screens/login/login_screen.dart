@@ -209,7 +209,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     TextButton(
                       onPressed: () {
-                        context.push(const SignUpScreen());
+                        context.push(SignUpScreen());
                       },
                       child: Text(
                         "SIGN UP",

@@ -60,7 +60,7 @@ class _StartUpScreenState extends State<StartUpScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SignUpScreen(),
+                          builder: (context) =>  SignUpScreen(),
                         ),
                       );
                     },

@@ -8,6 +8,7 @@ import 'package:todo_mpteam/screens/home/topic_screen.dart';
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
+
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
 }
@@ -171,10 +172,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 35,
                   ),
                   RoundTextField(hintText: "Username"),
+                  
+                  
                   const SizedBox(
                     height: 20,
                   ),
                   RoundTextField(hintText: "Email address"),
+                  
                   const SizedBox(
                     height: 20,
                   ),
