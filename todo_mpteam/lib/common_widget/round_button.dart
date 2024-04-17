@@ -22,7 +22,7 @@ class RoundButton extends StatelessWidget {
         onPressed: onPressed, 
         minWidth: double.maxFinite,
         elevation: 0,
-        color: type == RoundButtonType.primary ? TColor.primary : TColor.secondary,
+        color: type == RoundButtonType.primary ? TColor.primary : TColor.tertiary,
         height: 60,
         shape: RoundedRectangleBorder(
           side: BorderSide.none,

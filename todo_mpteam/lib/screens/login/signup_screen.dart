@@ -4,6 +4,7 @@ import 'package:todo_mpteam/common/color_extension.dart';
 import 'package:todo_mpteam/common_widget/round_button.dart';
 import 'package:todo_mpteam/common_widget/roundtext_field.dart';
 import 'package:todo_mpteam/screens/home/topic_screen.dart';
+import 'package:todo_mpteam/screens/home/welcome_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -234,7 +235,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   RoundButton(
                       title: "GET STARTED",
                       onPressed: () {
-                        context.push(const ChooseTopicScreen());
+                       context.push( const WelcomeScreen());
                         //dragin page ruu shiljih
                       }),
                   const SizedBox(
