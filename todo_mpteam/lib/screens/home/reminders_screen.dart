@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_mpteam/common/color_extension.dart';
 import 'package:todo_mpteam/common_widget/circle_button.dart';
 import 'package:todo_mpteam/common_widget/round_button.dart';
+import 'package:todo_mpteam/screens/home/home_screen.dart';
 
 class ReminderScreen extends StatefulWidget {
   const ReminderScreen({super.key});
@@ -112,12 +113,16 @@ class _ReminderScreenState extends State<ReminderScreen> {
                 ],
               ),
             ),
-            RoundButton(title: "SAVE", onPressed: () {}),
+            RoundButton(title: "SAVE", onPressed: () {
+              context.push(const HomeScreen());
+            }),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                       context.push(const HomeScreen());
+                    },
                     child: Text("No Thanks",
                         style: TextStyle(
                           color: TColor.primaryText,
