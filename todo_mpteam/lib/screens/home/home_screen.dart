@@ -3,6 +3,7 @@ import 'dart:js';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_mpteam/common/color_extension.dart';
+import 'package:todo_mpteam/screens/home/course_detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -80,89 +81,97 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     children: [
                       Expanded(
-                          child: ClipRRect(
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Color(0xff8E97FD),
-                              borderRadius: BorderRadius.circular(5)),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Image.asset(
-                                    "img/h11.png",
-                                    width: 80,
-                                    height: 80,
-                                  ),
-                                ],
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 15),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                          child: InkWell(
+                        onTap: () {
+                          context.push(const CourseDetailScreen());
+                        },
+                        child: ClipRRect(
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Color(0xff8E97FD),
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    Text(
-                                      "Basics",
-                                      style: TextStyle(
-                                        color: TColor.tertiary,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 8,
-                                    ),
-                                    Text(
-                                      "COURSE",
-                                      style: TextStyle(
-                                        color: TColor.tertiary,
-                                        fontSize: 11,
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 25,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Text("3-10 MIN",
-                                            style: TextStyle(
-                                              color: TColor.tertiary,
-                                              fontSize: 11,
-                                            )),
-                                        InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              color: TColor.tertiary,
-                                              borderRadius:
-                                                  BorderRadius.circular(20),
-                                            ),
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 8, horizontal: 15),
-                                            child: Text("START",
-                                                style: TextStyle(
-                                                  color: TColor.primaryText,
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w600,
-                                                )),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      height: 25,
+                                    Image.asset(
+                                      "img/h11.png",
+                                      width: 80,
+                                      height: 80,
                                     ),
                                   ],
                                 ),
-                              )
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 15),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Basics",
+                                        style: TextStyle(
+                                          color: TColor.tertiary,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 8,
+                                      ),
+                                      Text(
+                                        "COURSE",
+                                        style: TextStyle(
+                                          color: TColor.tertiary,
+                                          fontSize: 11,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 25,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Text("3-10 MIN",
+                                              style: TextStyle(
+                                                color: TColor.tertiary,
+                                                fontSize: 11,
+                                              )),
+                                          InkWell(
+                                            onTap: () {},
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                color: TColor.tertiary,
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                              ),
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 8,
+                                                      horizontal: 15),
+                                              child: Text("START",
+                                                  style: TextStyle(
+                                                    color: TColor.primaryText,
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.w600,
+                                                  )),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 25,
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       )),
@@ -170,89 +179,97 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: 20,
                       ),
                       Expanded(
-                          child: ClipRRect(
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Color(0xffFFC97E),
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Image.asset(
-                                    "img/h2.png",
-                                    width: 80,
-                                    height: 80,
-                                  ),
-                                ],
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 15),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                          child: InkWell(
+                        onTap: () {
+                          context.push(const CourseDetailScreen());
+                        },
+                        child: ClipRRect(
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Color(0xffFFC97E),
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    Text(
-                                      "Relaxation",
-                                      style: TextStyle(
-                                        color: TColor.primaryText,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 8,
-                                    ),
-                                    Text(
-                                      "MUSIC",
-                                      style: TextStyle(
-                                        color: TColor.primaryText,
-                                        fontSize: 11,
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 25,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Text("3-10 MIN",
-                                            style: TextStyle(
-                                              color: TColor.primaryText,
-                                              fontSize: 11,
-                                            )),
-                                        InkWell(
-                                          onTap: () {},
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              color: TColor.primaryText,
-                                              borderRadius:
-                                                  BorderRadius.circular(20),
-                                            ),
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 8, horizontal: 15),
-                                            child: Text("START",
-                                                style: TextStyle(
-                                                  color: TColor.tertiary,
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w600,
-                                                )),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      height: 25,
+                                    Image.asset(
+                                      "img/h2.png",
+                                      width: 80,
+                                      height: 80,
                                     ),
                                   ],
                                 ),
-                              )
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 15),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Relaxation",
+                                        style: TextStyle(
+                                          color: TColor.primaryText,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 8,
+                                      ),
+                                      Text(
+                                        "MUSIC",
+                                        style: TextStyle(
+                                          color: TColor.primaryText,
+                                          fontSize: 11,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 25,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Text("3-10 MIN",
+                                              style: TextStyle(
+                                                color: TColor.primaryText,
+                                                fontSize: 11,
+                                              )),
+                                          InkWell(
+                                            onTap: () {},
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                color: TColor.primaryText,
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                              ),
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 8,
+                                                      horizontal: 15),
+                                              child: Text("START",
+                                                  style: TextStyle(
+                                                    color: TColor.tertiary,
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.w600,
+                                                  )),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 25,
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ))
