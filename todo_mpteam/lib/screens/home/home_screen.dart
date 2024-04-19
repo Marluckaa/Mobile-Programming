@@ -13,10 +13,26 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List rArr = [
-    {"image": "img/r1.png", "title": "Focus", "subtitle": "MEDITATION . 3-10MIN"},
-    {"image": "img/r2.png", "title": "Happiness", "subtitle": "MEDITATION . 3-10MIN"},
-    {"image": "img/r1.png", "title": "Focus", "subtitle": "MEDITATION . 3-10MIN"},
-    {"image": "img/r2.png", "title": "Happiness", "subtitle": "MEDITATION . 3-10MIN"},
+    {
+      "image": "img/r1.png",
+      "title": "Focus",
+      "subtitle": "MEDITATION . 3-10MIN"
+    },
+    {
+      "image": "img/r2.png",
+      "title": "Happiness",
+      "subtitle": "MEDITATION . 3-10MIN"
+    },
+    {
+      "image": "img/r1.png",
+      "title": "Focus",
+      "subtitle": "MEDITATION . 3-10MIN"
+    },
+    {
+      "image": "img/r2.png",
+      "title": "Happiness",
+      "subtitle": "MEDITATION . 3-10MIN"
+    },
   ];
 
   @override
@@ -318,43 +334,47 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: context.width * 0.35 * 0.7 + 55 + 40,
               child: ListView.separated(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    var rObj = rArr[index];
-                    return SizedBox(
-                      width: context.width * 0.35,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.asset(rObj["image"],
-                          width: context.width*0.35,
-                           height: context.width * 0.35 * 0.7,),
-                           const SizedBox(
-                            height: 8,
-                           ),
-                           Text(rObj["title"],
-                      style: TextStyle(
-                        color: TColor.primaryText,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      )),
-                      const SizedBox(
-                            height: 4,
-                           ),
-                           Text(rObj["subtitle"],
-                      style: TextStyle(
-                        color: TColor.primaryText,
-                        fontSize: 11,
-                      )),
-                        ],
-                      ),
-                    );
-                  },
-                  separatorBuilder: (context, index) => const SizedBox(
-                        width: 20,
-                      ),
-                  itemCount: rArr.length,),
+                itemBuilder: (context, index) {
+                  var rObj = rArr[index];
+                  return SizedBox(
+                    width: context.width * 0.35,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset(
+                          rObj["image"],
+                          width: context.width * 0.35,
+                          height: context.width * 0.35 * 0.7,
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text(rObj["title"],
+                            style: TextStyle(
+                              color: TColor.primaryText,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                            )),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        Text(rObj["subtitle"],
+                            style: TextStyle(
+                              color: TColor.primaryText,
+                              fontSize: 11,
+                            )),
+                      ],
+                    ),
+                  );
+                },
+                separatorBuilder: (context, index) => const SizedBox(
+                  width: 20,
+                ),
+                itemCount: rArr.length,
+              ),
             ),
           ],
         )),

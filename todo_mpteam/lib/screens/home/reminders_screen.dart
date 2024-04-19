@@ -4,6 +4,7 @@ import 'package:todo_mpteam/common/color_extension.dart';
 import 'package:todo_mpteam/common_widget/circle_button.dart';
 import 'package:todo_mpteam/common_widget/round_button.dart';
 import 'package:todo_mpteam/screens/home/home_screen.dart';
+import 'package:todo_mpteam/screens/main_tabveiw/main_tabview_screen.dart';
 
 class ReminderScreen extends StatefulWidget {
   const ReminderScreen({super.key});
@@ -114,14 +115,14 @@ class _ReminderScreenState extends State<ReminderScreen> {
               ),
             ),
             RoundButton(title: "SAVE", onPressed: () {
-              context.push(const HomeScreen());
+              context.push(const MainTabViewScreen());
             }),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton(
                     onPressed: () {
-                       context.push(const HomeScreen());
+                       context.push(const MainTabViewScreen());
                     },
                     child: Text("No Thanks",
                         style: TextStyle(
