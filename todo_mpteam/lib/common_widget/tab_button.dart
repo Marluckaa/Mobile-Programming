@@ -37,7 +37,13 @@ class TabButton extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 4),
-          Text(title,style: TextStyle(color: isSelect ? TColor.primary : TColor.secondaryText,fontSize: 14, fontWeight: FontWeight.w600),)
+          Text(
+            title,
+            style: TextStyle(
+                color: isSelect ? TColor.primary : TColor.secondaryText,
+                fontSize: 14,
+                fontWeight: FontWeight.w600),
+          )
         ],
       ),
     );

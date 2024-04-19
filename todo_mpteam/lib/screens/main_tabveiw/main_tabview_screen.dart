@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_mpteam/common_widget/tab_button.dart';
 import 'package:todo_mpteam/screens/home/home_screen.dart';
+import 'package:todo_mpteam/screens/meditate/meditate_screen.dart';
 
 class MainTabViewScreen extends StatefulWidget {
   const MainTabViewScreen({super.key});
@@ -31,9 +32,9 @@ class _MainTabViewScreenState extends State<MainTabViewScreen>
       body: TabBarView(controller: controller, children: [
         const HomeScreen(),
         Container(),
-        Container(
-          color: Colors.yellow,
-        ),
+         const MeditateScreen(),
+        Container(),
+       
         Container(),
         Container(
           color: Colors.red,
