@@ -5,20 +5,20 @@ import 'package:todo_mpteam/screens/home/home_screen.dart';
 import 'package:todo_mpteam/screens/meditate/meditate_screen.dart';
 import 'package:todo_mpteam/screens/music/music_screen.dart';
 
+import '../sleep/sleep_screen.dart';
+
 class MainTabViewScreen extends StatefulWidget {
   const MainTabViewScreen({super.key});
-  
 
   @override
   State<MainTabViewScreen> createState() => _MainTabViewScreenState();
-  
 }
 
 class _MainTabViewScreenState extends State<MainTabViewScreen>
     with SingleTickerProviderStateMixin {
   TabController? controller;
   int selectTab = 0;
-@override
+  @override
   void initState() {
     super.initState();
     controller = TabController(length: 5, vsync: this);
@@ -27,26 +27,28 @@ class _MainTabViewScreenState extends State<MainTabViewScreen>
       setState(() {});
     });
   }
+
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: TabBarView(controller: controller, children: [
         const HomeScreen(),
-        Container(color: TColor.sleep, ),
-         const MeditateScreen(),
-         const MusicScreen(),
+        const SleepScreen(),
+        const MeditateScreen(),
+        const MusicScreen(),
         Container(
           color: Colors.red,
         )
       ]),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.only(top: 15, bottom: 8),
-        decoration:  BoxDecoration(
-          color: selectTab == 3 || selectTab == 1 ? TColor.sleep : Colors.white ,
-          boxShadow: const [
-          BoxShadow(color: Colors.black12, blurRadius: 4, offset: Offset(0, -4))
-        ]),
+        decoration: BoxDecoration(
+            color:
+                selectTab == 3 || selectTab == 1 ? TColor.sleep : Colors.white,
+            boxShadow: const [
+              BoxShadow(
+                  color: Colors.black12, blurRadius: 4, offset: Offset(0, -4))
+            ]),
         child: SafeArea(
             child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -65,22 +67,21 @@ class _MainTabViewScreenState extends State<MainTabViewScreen>
                 onPressed: () {
                   changeTab(1);
                 }),
-                 TabButton(
+            TabButton(
                 title: "Meditate",
                 icon: "img/meditate.png",
                 isSelect: selectTab == 2,
                 onPressed: () {
                   changeTab(2);
                 }),
-                
-                 TabButton(
+            TabButton(
                 title: "Music",
                 icon: "img/music.png",
                 isSelect: selectTab == 3,
                 onPressed: () {
                   changeTab(3);
                 }),
-                 TabButton(
+            TabButton(
                 title: "Profile",
                 icon: "img/user.png",
                 isSelect: selectTab == 4,

@@ -56,61 +56,88 @@ class _MusicScreenState extends State<MusicScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: TColor.sleep,
-      appBar: AppBar(
-        leading: Container(),
-        centerTitle: true,
-        title: Text(
-          "Music",
-          style: TextStyle(
-              color: TColor.sleepText,
-              fontSize: 17,
-              fontWeight: FontWeight.w700),
-        ),
-      ),
-      body: GridView.builder(
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 15,
-            mainAxisSpacing: 15,
-            childAspectRatio: 1.08),
-        itemBuilder: (context, index) {
-          var c0bj = listArr[index];
-          return Column(
-
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  c0bj["image"],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                Image.asset(
+                  "img/sb.png",
                   width: double.maxFinite,
-                  height: context.width * 0.3,
-                  fit: BoxFit.cover
+                  fit: BoxFit.fitWidth,
                 ),
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              Text(
-                c0bj["title"],maxLines: 1,style: TextStyle(
-                  color: TColor.sleepText,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700
-                ),
-              ),
-                SizedBox(
-                height: 4,
-              ),
-              Text(
-                c0bj["subtitle"],maxLines: 1,style: TextStyle(
-                  color: TColor.sleepText,
-                  fontSize: 12,
-                ),
-              )
-            ],
-          );
-        },
+                Column(
+                  children: [
+                    const SizedBox(
+                      height: 60,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Sleep Music",
+                          style: TextStyle(
+                              color: TColor.sleepText,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w700),
+                        )
+                      ],
+                    )
+                  ],
+                )
+              ],
+            ),
+            GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: listArr.length,
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 15,
+                  mainAxisSpacing: 15,
+                  childAspectRatio: 1.08),
+              itemBuilder: (context, index) {
+                var c0bj = listArr[index];
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(c0bj["image"],
+                          width: double.maxFinite,
+                          height: context.width * 0.3,
+                          fit: BoxFit.cover),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Text(
+                      c0bj["title"],
+                      maxLines: 1,
+                      style: TextStyle(
+                          color: TColor.sleepText,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700),
+                    ),
+                    SizedBox(
+                      height: 4,
+                    ),
+                    Text(
+                      c0bj["subtitle"],
+                      maxLines: 1,
+                      style: TextStyle(
+                        color: TColor.sleepText,
+                        fontSize: 12,
+                      ),
+                    )
+                  ],
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

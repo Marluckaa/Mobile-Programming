@@ -180,7 +180,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 RoundButton(
                     title: "LOG IN",
                     onPressed: () {
-                      context.push( const WelcomeScreen());
+                      context.push(const WelcomeScreen());
                       // context.push(const ChooseTopicScreen());
                       //welcome get started luu ochih
                     }),
@@ -195,7 +195,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                  SizedBox(
+                SizedBox(
                   height: 10,
                 ),
                 Row(
@@ -224,7 +224,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ],
                 ),
-                  SizedBox(
+                SizedBox(
                   height: 20,
                 ),
               ],

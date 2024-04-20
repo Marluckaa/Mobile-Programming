@@ -19,26 +19,23 @@ class RoundButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: MaterialButton(
-        onPressed: onPressed, 
-        minWidth: double.maxFinite,
-        elevation: 0,
-        color: type == RoundButtonType.primary ? TColor.primary : TColor.tertiary,
-        height: 60,
-        shape: RoundedRectangleBorder(
-          side: BorderSide.none,
-          borderRadius: BorderRadius.circular(30)          
-        ),
-        child: Text(
-          title,
-          style : TextStyle(
-            color: type == RoundButtonType.primary 
-            ? Colors.white : TColor.primaryText,
-            fontSize: 14,
-            fontWeight: FontWeight.w600,
-          )
-          )
-
-        ),
+          onPressed: onPressed,
+          minWidth: double.maxFinite,
+          elevation: 0,
+          color: type == RoundButtonType.primary
+              ? TColor.primary
+              : TColor.tertiary,
+          height: 60,
+          shape: RoundedRectangleBorder(
+              side: BorderSide.none, borderRadius: BorderRadius.circular(30)),
+          child: Text(title,
+              style: TextStyle(
+                color: type == RoundButtonType.primary
+                    ? Colors.white
+                    : TColor.primaryText,
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+              ))),
     );
   }
 }

@@ -26,25 +26,18 @@ class RoundTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       child: TextField(
-          controller: controller, 
-          keyboardType: keyboardType,
-          obscureText: obscureText ?? false,
-          style: TextStyle(
-            color: TColor.primaryText,
-            fontSize: 16
-          ),
-          decoration: InputDecoration(
-            contentPadding: const EdgeInsets.symmetric(horizontal:20),
-            enabledBorder: InputBorder.none,
-            focusedBorder: InputBorder.none,
-            hintText: hintText,
-            suffixIcon: right,
-            hintStyle: TextStyle(
-            color: TColor.secondaryText,
-            fontSize: 16
-
-          ),
-           ),
+        controller: controller,
+        keyboardType: keyboardType,
+        obscureText: obscureText ?? false,
+        style: TextStyle(color: TColor.primaryText, fontSize: 16),
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+          enabledBorder: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          hintText: hintText,
+          suffixIcon: right,
+          hintStyle: TextStyle(color: TColor.secondaryText, fontSize: 16),
+        ),
       ),
     );
   }

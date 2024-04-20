@@ -65,7 +65,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       fontSize: 16,
                     ),
                   ),
-
                   const Spacer(),
                   RoundButton(
                       title: "GET STARTED",

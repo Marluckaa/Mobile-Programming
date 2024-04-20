@@ -219,10 +219,10 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                             const SizedBox(
-                      height: 4,
-                    ),
-                     Text(
+                            const SizedBox(
+                              height: 4,
+                            ),
+                            Text(
                               "10 MIN",
                               style: TextStyle(
                                 color: TColor.secondaryText,

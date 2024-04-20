@@ -27,7 +27,7 @@ class _StartUpScreenState extends State<StartUpScreen> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.only(bottom: 20.0), 
+            padding: const EdgeInsets.only(bottom: 20.0),
             child: Center(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -60,12 +60,12 @@ class _StartUpScreenState extends State<StartUpScreen> {
                     title: "SIGN UP",
                     onPressed: () {
                       context.push(const SignUpScreen());
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) =>  SignUpScreen(),
-                    //     ),
-                    //   );
+                      //   Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) =>  SignUpScreen(),
+                      //     ),
+                      //   );
                     },
                   ),
                   const SizedBox(height: 15),

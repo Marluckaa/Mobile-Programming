@@ -103,7 +103,8 @@ class _ReminderScreenState extends State<ReminderScreen> {
                           isSelect: dObj["is_select"],
                           onPressed: () {
                             setState(() {
-                              dayArr[dayArr.indexOf(dObj)]["is_select"] = !(dObj["is_select"] as bool? ?? false);
+                              dayArr[dayArr.indexOf(dObj)]["is_select"] =
+                                  !(dObj["is_select"] as bool? ?? false);
                             });
                           });
                     }).toList(),
@@ -114,15 +115,17 @@ class _ReminderScreenState extends State<ReminderScreen> {
                 ],
               ),
             ),
-            RoundButton(title: "SAVE", onPressed: () {
-              context.push(const MainTabViewScreen());
-            }),
+            RoundButton(
+                title: "SAVE",
+                onPressed: () {
+                  context.push(const MainTabViewScreen());
+                }),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton(
                     onPressed: () {
-                       context.push(const MainTabViewScreen());
+                      context.push(const MainTabViewScreen());
                     },
                     child: Text("No Thanks",
                         style: TextStyle(

@@ -9,7 +9,6 @@ import 'package:todo_mpteam/screens/home/welcome_screen.dart';
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
-
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
 }
@@ -173,13 +172,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 35,
                   ),
                   RoundTextField(hintText: "Username"),
-                  
-                  
                   const SizedBox(
                     height: 20,
                   ),
                   RoundTextField(hintText: "Email address"),
-                  
                   const SizedBox(
                     height: 20,
                   ),
@@ -202,10 +198,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           textAlign: TextAlign.center,
                           style: TextStyle(color: TColor.primary, fontSize: 14),
                         ),
-                        
                         Padding(
-                          padding: const EdgeInsets.only(
-                              bottom: 11), 
+                          padding: const EdgeInsets.only(bottom: 11),
                           child: SizedBox(
                             height: 24,
                             width: 24,
@@ -235,7 +229,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   RoundButton(
                       title: "GET STARTED",
                       onPressed: () {
-                       context.push( const WelcomeScreen());
+                        context.push(const WelcomeScreen());
                         //dragin page ruu shiljih
                       }),
                   const SizedBox(

@@ -39,151 +39,145 @@ class MeditateScreenState extends State<MeditateScreen> {
         child: Column(
           children: [
             SafeArea(
-                bottom: false,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      
-                          Text("Meditate",
-                                style: TextStyle(
-                                    color: TColor.primaryText,
-                                    fontSize: 28,
-                                    fontWeight: FontWeight.w700)), const SizedBox(
-                        height: 15,
-                      ),
-                       Text(
-                        "we can learn how to recognize when our minds are doing their normal everyday acrobatics.",
-                        textAlign: TextAlign.center,
+              bottom: false,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text("Meditate",
                         style: TextStyle(
-                          color: TColor.secondaryText,
-                          fontSize: 16,
-                        ),
+                            color: TColor.primaryText,
+                            fontSize: 28,
+                            fontWeight: FontWeight.w700)),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      "we can learn how to recognize when our minds are doing their normal everyday acrobatics.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: TColor.secondaryText,
+                        fontSize: 16,
                       ),
-
-                          
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 120,
+              child: ListView.separated(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    var cObj = catArr[index];
+                    return InkWell(
+                      onTap: () {
+                        selectIndex = index;
+                        setState(() {});
+                      },
+                      child: Column(
+                        children: [
+                          Container(
+                            width: 55,
+                            height: 55,
+                            decoration: BoxDecoration(
+                              color: selectIndex == index
+                                  ? TColor.primary
+                                  : const Color(0xffA0A3B1),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            alignment: Alignment.center,
+                            child: Image.asset(
+                              cObj['icon'],
+                              width: 25,
+                              height: 25,
+                              color: Colors.white,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            cObj['title'],
+                            style: TextStyle(
+                                color: selectIndex == index
+                                    ? TColor.primary
+                                    : TColor.secondaryText,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600),
+                          )
                         ],
                       ),
-                      
-                                          
-                  ),
-                ),
-                SizedBox(
-                    height: 120,
-                    child: ListView.separated(
-                      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                      scrollDirection: Axis.horizontal ,
-                      itemBuilder:(context,index){
-                      var cObj = catArr[index];
-                      return InkWell(
-                        onTap: (){
-                            selectIndex = index;
-                        },
-                        child: Column(
-                          children: [
-
- Container(
-            width: 55,
-            height: 55,
-            decoration: BoxDecoration(
-              color: selectIndex == index ? TColor.primary : const Color(0xffA0A3B1),
-              borderRadius: BorderRadius.circular(15),
+                    );
+                  },
+                  separatorBuilder: (context, index) => const SizedBox(
+                        width: 20,
+                      ),
+                  itemCount: catArr.length),
             ),
-            alignment: Alignment.center,
-            child: Image.asset(
-              cObj['icon'],
-              width: 25,
-              height: 25,
-              color: Colors.white,
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            cObj['title'],
-            style: TextStyle(
-                color: selectIndex == index ? TColor.primary : TColor.secondaryText,
-                fontSize: 14,
-                fontWeight: FontWeight.w600),
-          )
-
-
-                          ],
-                        ),
-                      );
-
-
-
-                    }, separatorBuilder: (context, index) =>const SizedBox(width: 20,),
-                     itemCount:catArr.length),
-                  ),
-
-
-Container(
-  margin: const EdgeInsets.symmetric(horizontal: 15),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 15),
+              width: double.maxFinite,
+              decoration: BoxDecoration(
+                color: const Color(0xffF1DDCF),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image.asset(
+                    "img/dailycalm.png",
                     width: double.maxFinite,
-                    decoration: BoxDecoration(
-                      color: const Color(0xffF1DDCF),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Stack(
-                      alignment: Alignment.center,
+                    fit: BoxFit.fitWidth,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 15, vertical: 15),
+                    child: Row(
                       children: [
-                        Image.asset(
-                          "img/dailycalm.png",
-                          width: double.maxFinite,
-                          fit: BoxFit.fitWidth,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 15),
-                          child: Row(
+                        Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Expanded(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Daily Thought",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w700),
-                                    ),
-                                    const SizedBox(
-                                      height: 8,
-                                    ),
-                                    Text(
-                                      "APP 30 , PAUSE PRACTICE",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 11,
-                                      ),
-                                    ),
-                                  ],
+                              Text(
+                                "Daily Thought",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              Text(
+                                "APP 30 , PAUSE PRACTICE",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 11,
                                 ),
                               ),
-                              InkWell(
-                                onTap: () {},
-                                child: Image.asset(
-                                  "img/play2.png",
-                                  width: 40,
-                                  height: 40,
-                                ),
-                              )
                             ],
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: Image.asset(
+                            "img/play2.png",
+                            width: 40,
+                            height: 40,
                           ),
                         )
                       ],
                     ),
-                  ),
-                  const SizedBox(
-                    height: 35,
-                  ),
-
-
-
+                  )
+                ],
+              ),
+            ),
+            // const SizedBox(
+            //   height: 35,
+            // ),
             MasonryGridView.count(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
