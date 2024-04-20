@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_mpteam/common/color_extension.dart';
+import 'package:todo_mpteam/screens/sleep/sleep_stories_detail_screen.dart';
 
 class SleepScreen extends StatefulWidget {
   const SleepScreen({super.key});
@@ -253,39 +254,44 @@ class _SleepScreenState extends State<SleepScreen> {
                   childAspectRatio: 1.08),
               itemBuilder: (context, index) {
                 var c0bj = listArr[index];
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(c0bj["image"],
-                          width: double.maxFinite,
-                          height: context.width * 0.3,
-                          fit: BoxFit.cover),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      c0bj["title"],
-                      maxLines: 1,
-                      style: TextStyle(
-                          color: TColor.sleepText,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700),
-                    ),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    Text(
-                      c0bj["subtitle"],
-                      maxLines: 1,
-                      style: TextStyle(
-                        color: TColor.sleepText,
-                        fontSize: 12,
+                return GestureDetector(
+                  onTap: (){
+                    context.push( const SleepStoriesDetailScreen() );
+                  },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.asset(c0bj["image"],
+                            width: double.maxFinite,
+                            height: context.width * 0.3,
+                            fit: BoxFit.cover),
                       ),
-                    )
-                  ],
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Text(
+                        c0bj["title"],
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: TColor.sleepText,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700),
+                      ),
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Text(
+                        c0bj["subtitle"],
+                        maxLines: 1,
+                        style: TextStyle(
+                          color: TColor.sleepText,
+                          fontSize: 12,
+                        ),
+                      )
+                    ],
+                  ),
                 );
               },
             ),
