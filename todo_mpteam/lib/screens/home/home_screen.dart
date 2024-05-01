@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Good Morning, Yuuki",
+                  Text("Good Morning",
                       style: TextStyle(
                         color: TColor.primaryText,
                         fontSize: 24,

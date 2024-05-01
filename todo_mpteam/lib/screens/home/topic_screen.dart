@@ -17,13 +17,14 @@ class ChooseTopicScreenState extends State<ChooseTopicScreen> {
     {
       "image": "assets/img/topic1.png",
       "title": "Reduce Stress",
-      "color": "8E97FD",
+      "color": "FA6E5A",
       "text_color": "FFECCC",
+      
     },
     {
       "image": "assets/img/topic2.png",
       "title": "Improve Performance",
-      "color": "FA6E5A",
+      "color": "8E97FD",
       "text_color": "FEF9F3",
     },
     {
@@ -79,7 +80,7 @@ class ChooseTopicScreenState extends State<ChooseTopicScreen> {
                     Row(
                       children: [
                         Expanded(
-                          child: Text("What brings you",
+                          child: Text("What brings you to Silent Moon?",
                               style: TextStyle(
                                   color: TColor.primaryText,
                                   fontSize: 28,
@@ -87,13 +88,13 @@ class ChooseTopicScreenState extends State<ChooseTopicScreen> {
                         ),
                       ],
                     ),
-                    Text(
-                      "to Silent Moon?",
-                      style: TextStyle(
-                        color: TColor.primaryText,
-                        fontSize: 28,
-                      ),
-                    ),
+                    // Text(
+                    //   "to Silent Moon?",
+                    //   style: TextStyle(
+                    //     color: TColor.primaryText,
+                    //     fontSize: 28,
+                    //   ),
+                    // ),
                     const SizedBox(
                       height: 15,
                     ),

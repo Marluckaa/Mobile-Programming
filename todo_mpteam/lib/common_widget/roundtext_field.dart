@@ -13,7 +13,7 @@ class RoundTextField extends StatelessWidget {
       this.keyboardType,
       this.right,
       this.obscureText,
-      required this.hintText});
+      required this.hintText, required Null Function(dynamic value) onChanged});
 
   @override
   Widget build(BuildContext context) {

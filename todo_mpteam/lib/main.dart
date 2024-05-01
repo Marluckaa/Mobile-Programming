@@ -3,77 +3,42 @@ import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_mpteam/common/color_extension.dart';
 import 'package:todo_mpteam/screens/login/startup_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
-    // Initialize Firebase for web
     await Firebase.initializeApp(
-      name: 'Meditation',
-      options: const FirebaseOptions(
-        apiKey: "AIzaSyB3irFjqCGsIETd3BtcGT7aQaTddjrpOAk",
-        authDomain: "mp-project-aeafa.firebaseapp.com",
-        projectId: "mp-project-aeafa",
-        storageBucket: "mp-project-aeafa.appspot.com",
-        messagingSenderId: "427903546085",
-        appId: "1:427903546085:web:33491ef1705048036f5a0c",
-        measurementId: "G-Y3N2DTF8NT"
-      ),
-    );
-  } else if (Platform.isAndroid){
-    // Initialize Firebase for non-web platforms
+        options: FirebaseOptions(
+            apiKey: "AIzaSyCyLNmAfixyssVwvg1DdBxlG32Y5tDipX0",
+            authDomain: "lab-cs3a-41.firebaseapp.com",
+            projectId: "lab-cs3a-41",
+            storageBucket: "lab-cs3a-41.appspot.com",
+            messagingSenderId: "451438020080",
+            appId: "1:451438020080:web:7bb01293701f4c04700935"));
+  } else if (Platform.isAndroid) {
     await Firebase.initializeApp(
-      name: 'Meditation',
-      options: const FirebaseOptions(
-        apiKey: "AIzaSyB3irFjqCGsIETd3BtcGT7aQaTddjrpOAk",
-        authDomain: "mp-project-aeafa.firebaseapp.com",
-        projectId: "mp-project-aeafa",
-        storageBucket: "mp-project-aeafa.appspot.com",
-        messagingSenderId: "427903546085",
-        appId: "1:427903546085:web:33491ef1705048036f5a0c",
-        measurementId: "G-Y3N2DTF8NT"
-    ),
-    );
-  }else if (Platform.isIOS) {
-    // Initialize Firebase for iOS
-    await Firebase.initializeApp(
-      name: 'Meditation',
-      options: const FirebaseOptions(
-        apiKey: "AIzaSyB3irFjqCGsIETd3BtcGT7aQaTddjrpOAk",
-        appId: "1:427903546085:ios:33491ef1705048036f5a0c",
-        messagingSenderId: "427903546085",
-        projectId: "mp-project-aeafa",
-        storageBucket: "mp-project-aeafa.appspot.com",
-        iosClientId: "427903546085-9q6k9vljv6k9q6k9q6k9q6k9q6k9q6k9.apps.googleusercontent.com",
-        iosBundleId: "com.example.meditation",
-      ),
-    );
+        options: FirebaseOptions(
+            apiKey: "AIzaSyDvj6SJi-Ei93OcjLJLSTJ8om14WwjoRbQ",
+            appId: "1:451438020080:android:0eb3497082a0dcfc700935",
+            messagingSenderId: "451438020080",
+            projectId: "lab-cs3a-41",
+            storageBucket: 'gs://lab-cs3a-41.appspot.com',));
   }
-
-  runApp(const MyApp());
+else {
+    //iOS Firebase initialization
+    await Firebase.initializeApp(
+        options: FirebaseOptions(
+            apiKey: "AIzaSyDvj6SJi-Ei93OcjLJLSTJ8om14WwjoRbQ",
+            appId: "1:451438020080:ios:7bb01293701f4c04700935",
+            messagingSenderId: "451438020080",
+            projectId: "lab-cs3a-41",
+            iosClientId: "451438020080-n5bb3i5vj6sj7eifj93ocjljlstj8om1.apps.googleusercontent.com",
+            iosBundleId: "com.example.yourApp",
+            storageBucket: 'gs://lab-cs3a-41.appspot.com'));
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Meditation',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: "HelveticaNeue",
-        scaffoldBackgroundColor: Colors.white,
-        appBarTheme: const AppBarTheme(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-        ),
-        colorScheme: ColorScheme.fromSeed(seedColor: TColor.primary),
-        useMaterial3: false,
-      ),
-      home: const StartUpScreen(),
-    );
-  }
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: StartUpScreen(),
+  ));
 }

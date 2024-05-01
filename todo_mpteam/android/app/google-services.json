@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "451438020080",
+    "project_id": "lab-cs3a-41",
+    "storage_bucket": "lab-cs3a-41.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451438020080:android:0eb3497082a0dcfc700935",
+        "android_client_info": {
+          "package_name": "com.example.anu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvj6SJi-Ei93OcjLJLSTJ8om14WwjoRbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

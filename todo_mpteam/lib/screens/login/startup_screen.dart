@@ -59,7 +59,7 @@ class _StartUpScreenState extends State<StartUpScreen> {
                   RoundButton(
                     title: "SIGN UP",
                     onPressed: () {
-                      context.push(const SignUpScreen());
+                      context.push( SignUp());
                       //   Navigator.push(
                       //     context,
                       //     MaterialPageRoute(
@@ -85,7 +85,7 @@ class _StartUpScreenState extends State<StartUpScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const LoginScreen(),
+                              builder: (context) => const LogIn(),
                             ),
                           );
                         },

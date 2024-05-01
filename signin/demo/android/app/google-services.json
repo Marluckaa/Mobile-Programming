@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "426905188164",
+    "project_id": "medi-signin",
+    "storage_bucket": "medi-signin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426905188164:android:645f516668a52bf6fe8911",
+        "android_client_info": {
+          "package_name": "com.example.demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmLIuU59eIwJpDwM0llfWvqFUqcM_teIM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

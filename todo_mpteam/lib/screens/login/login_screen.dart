@@ -1,163 +1,160 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+// ignore_for_file: use_build_context_synchronously
 import 'package:todo_mpteam/common/color_extension.dart';
-import 'package:todo_mpteam/common_widget/round_button.dart';
-import 'package:todo_mpteam/common_widget/roundtext_field.dart';
-import 'package:todo_mpteam/screens/home/topic_screen.dart';
 import 'package:todo_mpteam/screens/home/welcome_screen.dart';
+import 'package:todo_mpteam/screens/login/forgot_password.dart';
 import 'package:todo_mpteam/screens/login/signup_screen.dart';
+import 'package:todo_mpteam/screens/login/startup_screen.dart';
+//import 'package:todo_mpteam/service/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:todo_mpteam/service/auth.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class LogIn extends StatefulWidget {
+  const LogIn({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LogIn> createState() => _LogInState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LogInState extends State<LogIn> {
+  String email = "", password = "", _response="";
+
+  TextEditingController mailcontroller = new TextEditingController();
+  TextEditingController passwordcontroller = new TextEditingController();
+
+  final _formkey = GlobalKey<FormState>();
+final AuthController _authController =  AuthController();
+ loginUser() async {
+   _response = await _authController.loginUser(email, password);
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    Image.asset(
-                      "assets/img/login_top.png",
-                      width: double.maxFinite,
-                      fit: BoxFit.fitHeight,
-                    ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: Row(
-                              children: [
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Image.asset(
-                                    "assets/img/back.png",
-                                    width: 55,
-                                    height: 55,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          Text(
-                            "Welcome Back!",
-                            style: TextStyle(
-                              color: TColor.primaryText,
-                              fontSize: 28,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: MaterialButton(
-                              onPressed: () {},
-                              minWidth: double.maxFinite,
-                              elevation: 0,
-                              color: const Color(0xff8E97FD),
-                              height: 60,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Row(
-                                children: [
-                                  const SizedBox(
-                                    width: 15,
-                                  ),
-                                  Image.asset(
-                                    'assets/img/fb.png',
-                                    width: 25,
-                                    height: 25,
-                                  ),
-                                  const Expanded(
-                                    child: Text(
-                                      "CONTINUE WITH FACEBOOK",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 40,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: MaterialButton(
-                              onPressed: () {},
-                              minWidth: double.maxFinite,
-                              elevation: 0,
-                              color: Colors.white,
-                              height: 60,
-                              shape: RoundedRectangleBorder(
-                                side: BorderSide(
-                                    color: TColor.tertiary, width: 1),
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Row(
-                                children: [
-                                  const SizedBox(
-                                    width: 15,
-                                  ),
-                                  Image.asset(
-                                    'assets/img/google.png',
-                                    width: 25,
-                                    height: 25,
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      "CONTINUE WITH GOOGLE",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: TColor.primaryText,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 40,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Image.asset(
+                    "img/login1.jpg",
+                       height: 350,
+                      width: 400,
+                  )),
+              SizedBox(
+                height: 20.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                child: Form(
+                  key: _formkey,
+                  child: Column(
+                    children: [
+                      Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 2.0, horizontal: 30.0),
+                        decoration: BoxDecoration(
+                            color: Color(0xFFedf0f8),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please Enter E-mail';
+                            }
+                            return null;
+                          },
+                          controller: mailcontroller,
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Email",
+                              hintStyle: TextStyle(
+                                  color: Color(0xFFb2b7bf), fontSize: 18.0)),
+                        ),
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 2.0, horizontal: 30.0),
+                        decoration: BoxDecoration(
+                            color: Color(0xFFedf0f8),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: TextFormField(
+                          controller: passwordcontroller,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please Enter Password';
+                            }
+                            return null;
+                          },
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Password",
+                              hintStyle: TextStyle(
+                                  color: Color(0xFFb2b7bf), fontSize: 18.0)),
+                     obscureText: true,   ),
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      GestureDetector(
+                        onTap: (){
+                          if(_formkey.currentState!.validate()){
+                            setState(() {
+                              email= mailcontroller.text;
+                              password=passwordcontroller.text;
+                            });
+                          }
+                          loginUser();
+                           if(_response == "Login Success"){
+                           
+                      Navigator.push(context,
+                     MaterialPageRoute(builder: (context) =>WelcomeScreen()));
+                    
+                    }
+                        },
+                        child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            padding: EdgeInsets.symmetric(
+                                vertical: 13.0, horizontal: 30.0),
+                            decoration: BoxDecoration(
+                                color: const Color(0xff8E97FD),
+                                borderRadius: BorderRadius.circular(30)),
+                            child: Center(
+                                child: Text(
+                              "Sign In",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22.0,
+                                  fontWeight: FontWeight.w500),
+                            ))),
+                      ),
+                    ],
+                  ),
                 ),
-                SizedBox(
-                  height: 35,
-                ),
-                Text(
+              ),
+              SizedBox(
+                 height: 20.0,
+               ),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const ForgotPassword()));
+                },
+                child: Text("Forgot Password?",
+                    style: TextStyle(
+                          color: TColor.secondaryText,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        ),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Text(
                   "OR LOGIN WITH EMAIL",
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -166,69 +163,86 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                SizedBox(
-                  height: 35,
-                ),
-                RoundTextField(hintText: "Email address"),
-                SizedBox(
-                  height: 20,
-                ),
-                RoundTextField(hintText: "Password", obscureText: true),
-                SizedBox(
-                  height: 20,
-                ),
-                RoundButton(
-                    title: "LOG IN",
-                    onPressed: () {
-                      context.push(const WelcomeScreen());
-                      // context.push(const ChooseTopicScreen());
-                      //welcome get started luu ochih
-                    }),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Forgot Password?",
-                    style: TextStyle(
-                      color: TColor.primaryText,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                    ),
+              SizedBox(
+                height: 30.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "img/google.png",
+                    height: 45,
+                    width: 45,
+                    fit: BoxFit.cover,
                   ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "CREATE A NEW ACCOUNT",
-                      style: TextStyle(
-                        color: TColor.secondaryText,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        context.push(SignUpScreen());
-                      },
-                      child: Text(
-                        "SIGN UP",
+                  SizedBox(
+                    width: 30.0,
+                  ),
+                  Image.asset(
+                    "img/apple1.png",
+                    height: 45,
+                    width: 45,
+                    fit: BoxFit.cover,
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // GestureDetector(
+                  //   onTap: (){
+                  //     AuthMethods().signInWithGoogle(context);
+                  //   },
+                  //   child: Image.asset(
+                  //     "images/google.png",
+                  //     height: 45,
+                  //     width: 45,
+                  //     fit: BoxFit.cover,
+                  //   ),
+                  // ),
+                
+                ],
+              ),
+              // SizedBox(
+              //   height: 30.0,
+              // ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                        "DON'T HAVE AN ACCOUNT?",
                         style: TextStyle(
-                          color: TColor.primary,
+                          color: TColor.secondaryText,
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-              ],
-            ),
+                  SizedBox(
+                    width: 5.0,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => SignUp()));
+                    },
+                    child: Text(
+                          "SIGN UP",
+                          style: TextStyle(
+                            color: TColor.primary,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                  ),
+                ],
+              )
+            ],
           ),
         ),
       ),
