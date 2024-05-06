@@ -19,15 +19,22 @@ class AuthController {
 
   Future<String> loginUser(String email, String password) async {
     String response = "Something is wrong";
-    try{
-    await _auth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      response = "Login Success";
-   
+    try {
+  final UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+    email: email,
+    password: password,
+  );
+  
+  final User? user = userCredential.user;
+  
+  if (user != null) {
+    String userEmail = user.email!;
+    print("User email: $userEmail");
 
-    } on FirebaseException catch (e) {
+  }
+  
+  response = "Login Success";
+} on FirebaseException catch (e) {
       if (e.code == 'user-not-found'){
         response = "unregistered email";
 

@@ -82,6 +82,7 @@ class ChooseTopicScreenState extends State<ChooseTopicScreen> {
                         Expanded(
                           child: Text("What brings you to Silent Moon?",
                               style: TextStyle(
+                                backgroundColor: Colors.white,
                                   color: TColor.primaryText,
                                   fontSize: 28,
                                   fontWeight: FontWeight.w700)),
@@ -101,6 +102,7 @@ class ChooseTopicScreenState extends State<ChooseTopicScreen> {
                     Text(
                       "choose a topic to focus on:",
                       style: TextStyle(
+                        backgroundColor: Colors.white,
                         color: TColor.secondaryText,
                         fontSize: 20,
                       ),

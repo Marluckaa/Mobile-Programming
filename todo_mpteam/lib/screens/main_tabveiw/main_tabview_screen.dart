@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_mpteam/common/color_extension.dart';
 import 'package:todo_mpteam/common_widget/tab_button.dart';
+import 'package:todo_mpteam/profile/profile_screen.dart';
 import 'package:todo_mpteam/screens/home/home_screen.dart';
 import 'package:todo_mpteam/screens/meditate/meditate_screen.dart';
 import 'package:todo_mpteam/screens/music/music_screen.dart';
@@ -36,6 +37,7 @@ class _MainTabViewScreenState extends State<MainTabViewScreen>
         const SleepScreen(),
         const MeditateScreen(),
         const MusicScreen(),
+        const ProfileScreen(),
         Container(
           color: Colors.red,
         )

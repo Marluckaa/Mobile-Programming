@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:todo_mpteam/common/color_extension.dart';
 import 'package:todo_mpteam/common_widget/round_button.dart';
-import 'package:todo_mpteam/screens/home/reminders_screen.dart';
-import 'package:todo_mpteam/screens/home/welcome_screen.dart';
 import 'package:todo_mpteam/screens/login/login_screen.dart';
 import 'package:todo_mpteam/screens/login/signup_screen.dart';
 

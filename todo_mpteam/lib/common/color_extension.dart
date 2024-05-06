@@ -12,6 +12,7 @@ class TColor {
   static Color get primaryTextW => const Color(0xffF6F1FB);
   static Color get secondaryText => const Color(0xffA1A4B2);
   static Color get txtBG => const Color(0xffF2F3F7);
+  
 }
 
 extension AppContext on BuildContext {

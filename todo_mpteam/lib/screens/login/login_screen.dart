@@ -3,11 +3,11 @@ import 'package:todo_mpteam/common/color_extension.dart';
 import 'package:todo_mpteam/screens/home/welcome_screen.dart';
 import 'package:todo_mpteam/screens/login/forgot_password.dart';
 import 'package:todo_mpteam/screens/login/signup_screen.dart';
-import 'package:todo_mpteam/screens/login/startup_screen.dart';
 //import 'package:todo_mpteam/service/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_mpteam/service/auth.dart';
+import 'package:provider/provider.dart';
+import '/service/user_provider.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
@@ -17,16 +17,56 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
-  String email = "", password = "", _response="";
+  String email = '', password = '', _response='';
 
   TextEditingController mailcontroller = new TextEditingController();
   TextEditingController passwordcontroller = new TextEditingController();
 
   final _formkey = GlobalKey<FormState>();
-final AuthController _authController =  AuthController();
- loginUser() async {
-   _response = await _authController.loginUser(email, password);
+  //final AuthController _authController =  AuthController();
+   Future<void> loginUser() async {
+  try {
+   final UserCredential userCredential = await FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email, password: password);
+     final User? user = userCredential.user;
+  
+    if (user != null) {
+      String userEmail = user.email!;
+      Provider.of<UserProvider>(context, listen: false).setUserEmail(userEmail);
+
+      print("User email: $userEmail");
+    }
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => WelcomeScreen()),
+    );
+
+  } on FirebaseAuthException catch (e) {
+    if (e.code == 'user-not-found') {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        backgroundColor: Color(0xff8E97FD),
+        content: Text(
+          "No User Found for that Email",
+          style: TextStyle(fontSize: 18.0),
+        ),
+      ));
+    } else if (e.code == 'wrong-password') {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        backgroundColor: Color(0xff8E97FD),
+        content: Text(
+          "Wrong Password Provided by User",
+          style: TextStyle(fontSize: 18.0),
+        ),
+      ));
+    }
+  }
 }
+
+
+
+//  loginUser() async {
+//    _response = await _authController.loginUser(email, password);
+// }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +79,7 @@ final AuthController _authController =  AuthController();
               Container(
                   width: MediaQuery.of(context).size.width,
                   child: Image.asset(
-                    "img/login1.jpg",
+                    'img/login1.jpg',
                        height: 350,
                       width: 400,
                   )),
@@ -100,37 +140,37 @@ final AuthController _authController =  AuthController();
                       SizedBox(
                         height: 20.0,
                       ),
-                      GestureDetector(
-                        onTap: (){
+                      ElevatedButton(
+                        onPressed: () async {
                           if(_formkey.currentState!.validate()){
                             setState(() {
                               email= mailcontroller.text;
                               password=passwordcontroller.text;
                             });
                           }
-                          loginUser();
+                          await loginUser();
                            if(_response == "Login Success"){
-                           
+                       
                       Navigator.push(context,
                      MaterialPageRoute(builder: (context) =>WelcomeScreen()));
                     
                     }
                         },
-                        child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            padding: EdgeInsets.symmetric(
-                                vertical: 13.0, horizontal: 30.0),
-                            decoration: BoxDecoration(
-                                color: const Color(0xff8E97FD),
-                                borderRadius: BorderRadius.circular(30)),
-                            child: Center(
-                                child: Text(
-                              "Sign In",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22.0,
-                                  fontWeight: FontWeight.w500),
-                            ))),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xff8E97FD),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 20.0, horizontal: 195.0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                        ),
+                        child: Text(
+                          "SIGN IN",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w500),
+                        ),
                       ),
                     ],
                   ),
@@ -189,9 +229,7 @@ final AuthController _authController =  AuthController();
               SizedBox(
                 height: 20.0,
               ),
-              SizedBox(
-                height: 20.0,
-              ),
+             
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -240,6 +278,10 @@ final AuthController _authController =  AuthController();
                           ),
                         ),
                   ),
+                   SizedBox(
+                    width: 20.0,
+                  ),
+
                 ],
               )
             ],
